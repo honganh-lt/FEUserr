@@ -1,0 +1,347 @@
+{
+  "register": [
+    {
+      "id": "1",
+      "name": "Hồng Ánh",
+      "email": "anhle7543@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "5e18",
+      "name": "hồng ánh",
+      "email": "anhle7543@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "6156",
+      "name": "hồng anh",
+      "email": "anhle7543@gmail.com",
+      "password": "12345"
+    }
+  ],
+  "login": [
+    {
+      "id": "1",
+      "email": "anhle7543@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "2",
+      "name": "Tran Thi B",
+      "email": "tranthib@example.com",
+      "password": "mypassword456"
+    },
+    {
+      "id": "c0f4",
+      "email": "anhle7543@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "4771",
+      "email": "anhle7543@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "f94e",
+      "email": "anhle7576843@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "3725",
+      "email": "anhle7543@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "4a62",
+      "email": "anhle5781648@gmail.com",
+      "password": "1234567"
+    }
+  ],
+  "users": [
+    {
+      "subject": "Môn Nguyên lí hệ điều hành",
+      "id": "1"
+    },
+    {
+      "subject": "Môn Kiến Trúc máy tính & Vi xử lý",
+      "id": "2"
+    },
+    {
+      "subject": "Môn Mạng máy tính",
+      "id": "3"
+    },
+    {
+      "subject": "Môn Thiết kế mạng máy tính",
+      "id": "4"
+    }
+  ],
+  "subjects": [
+    {
+      "subjectId": 28,
+      "name": "Nguyên lí hệ điều hành",
+      "chaps": [
+        {
+          "chapterId": 37,
+          "subjectId": 28,
+          "name": "Ôn tập chương 1: nguyên lí",
+          "chapterNumber": 1
+        },
+        {
+          "chapterId": 38,
+          "subjectId": 28,
+          "name": "Ôn tập chương 2",
+          "chapterNumber": 2
+        }
+      ]
+    },
+    {
+      "subjectId": 29,
+      "name": "Kiến trúc máy tính & Vi xử lý",
+      "chaps": [
+        {
+          "chapterId": 39,
+          "subjectId": 29,
+          "name": "Ôn tập chương 1",
+          "chapterNumber": 1
+        }
+      ]
+    }
+
+],
+  
+  "listChapExam": [
+    {
+      "chapExam": "Đề số 1",
+      "id": "1"
+    },
+    {
+      "chapExam": "Dề số 2",
+      "id": "2"
+    },
+    {
+      "chapExam": "Đề số 3",
+      "id": "3"
+    },
+    {
+      "chapExam": "Đề số 4",
+      "id": "4"
+    }
+  ],
+  "questionAnswers": [
+    {
+      "id": "1",
+      "question": "Câu 1: Xác định đâu không phải là cách thức truyền tham số cho các system call",
+      "answers": [
+        {
+          "answer_text": "A. Truyền tham số trong các thanh ghi",
+          "is_correct": false
+        },
+        {
+          "answer_text": "Tham số được chứa trong một bảng trong bộ nhớ, và địa chỉ của bảng được truyền như một tham số trong một thanh ghi.",
+          "is_correct": false
+        },
+        {
+          "answer_text": "Tham số được chứa trong một bảng trong bộ nhớ, và địa chỉ của bảng được truyền như một tham số trong một vùng bộ nhớ khác.",
+          "is_correct": true
+        },
+        {
+          "answer_text": "Đẩy (push) các tham số vào stack bằng chương trình, và lấy ra khỏi stack (pop) bởi HĐH",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "question": "Câu 2. Xác định phương án sai khi nói đến các system call?",
+      "answers": [
+        {
+          "answer_text": "A.Cung cấp giao diện lập trình trình cho các dịch vụ của HĐH",
+          "is_correct": false
+        },
+        {
+          "answer_text": "B. Thường được viết bằng một ngôn ngữ bậc thấp, gần với ngôn ngữ máy.",
+          "is_correct": true
+        },
+        {
+          "answer_text": "C. Hầu hết được truy nhập bởi các chương trình thông qua một giao diện lập trình ứng dụng (API) bậc cao, ít khi sử dụng trực tiếp system call.",
+          "is_correct": false
+        },
+        {
+          "answer_text": "D. Ba API phổ biến nhất là Win32 API, POSIX API và Java Api",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "question": "Câu 3. Lớp phần cứng?",
+      "answers": [
+        {
+          "answer_text": "A.Lớp kernel",
+          "is_correct": false
+        },
+        {
+          "answer_text": "B.Lớp các chương trình hệ thống và chương trình ứng dụng",
+          "is_correct": false
+        },
+        {
+          "answer_text": "C. Tất cả các lớp trên.",
+          "is_correct": true
+        }
+      ]
+    }
+  ],
+  "examUsers": [
+    {
+      "exam": "Đề thi: Nguyên lí hệ điều hành",
+      "id": "1"
+    },
+    {
+      "exam": "Đề thi: Kiến trúc máy tính & Vi xử lý",
+      "id": "2"
+    },
+    {
+      "exam": "Đề thi: Mạng máy tính",
+      "id": "3"
+    },
+    {
+      "exam": "Đề thi: Thiết kế mạng máy tính",
+      "id": "4"
+    }
+  ],
+  "examQuestionAnswers":[
+    {
+    "questionId": 1,
+    "content": "Câu 1: Khi nào tiến trình chuyển từ trang thái chạy sang trang thái chờ",
+    "difficulty": "MEDIUM",
+    "chapterId": 3,
+    "chapterName": "Introduction 1",
+    "answers": [
+        {
+            "optionId": 37,
+            "questionId": 1,
+            "content": "A.Khi đợi vào-ra hoặc đợi một sự kiện nào đó xuất hiện",
+            "isCorrect": true
+        },
+        {
+            "optionId": 38,
+            "questionId": 1,
+            "content": "B.Khi bị ngắt",
+            "isCorrect": false
+        },
+        {
+            "optionId": 39,
+            "questionId": 1,
+            "content": "C.Khi được lập lịch điều vận (giải quyết)",
+            "isCorrect": false
+        },
+        {
+            "optionId": 40,
+            "questionId": 28,
+            "content": "D.Khi vào-ra hoặc một sự kiện nào đó kết thúc.",
+            "isCorrect": false
+        }
+    ]
+},
+{
+  "questionId": 2,
+  "content": "Câu 2. Xác định loại queue nào không được sử dụng trong lập lịch tiến trình ?",
+  "difficulty": "MEDIUM",
+  "chapterId": 3,
+  "chapterName": "Introduction 1",
+  "answers": [
+      {
+          "optionId": 37,
+          "questionId": 2,
+          "content": "A.Job queue",
+          "isCorrect": false
+      },
+      {
+          "optionId": 38,
+          "questionId": 2,
+          "content": "B.Ready queue",
+          "isCorrect": false
+      },
+      {
+          "optionId": 39,
+          "questionId": 2,
+          "content": "C. Running queue",
+          "isCorrect": true
+      },
+      {
+          "optionId": 40,
+          "questionId": 2,
+          "content": "D.Device queue",
+          "isCorrect": false
+      }
+  ]
+},
+{
+  "questionId": 2,
+  "content": "Câu 3. Xác định kiểu tổ chức nào không được sử dụng cho ready queue khi lập lịch tiến trình ?",
+  "difficulty": "MEDIUM",
+  "chapterId": 3,
+  "chapterName": "Introduction 1",
+  "answers": [
+      {
+          "optionId": 37,
+          "questionId": 2,
+          "content": "A.FIFO",
+          "isCorrect": false
+      },
+      {
+          "optionId": 38,
+          "questionId": 2,
+          "content": "B.LIFO",
+          "isCorrect": true
+      },
+      {
+          "optionId": 39,
+          "questionId": 2,
+          "content": "C. Priority queue.",
+          "isCorrect": false
+      },
+      {
+          "optionId": 40,
+          "questionId": 2,
+          "content": "D.Tree",
+          "isCorrect": false
+      }
+  ]
+},
+{
+  "questionId": 2,
+  "content": "Câu 4. Xác định phương án nào không phải là ưu điểm của các tiến trình hợp tác ?",
+  "difficulty": "MEDIUM",
+  "chapterId": 3,
+  "chapterName": "Introduction 1",
+  "answers": [
+      {
+          "optionId": 37,
+          "questionId": 2,
+          "content": "A.Bảo mật thông tin",
+          "isCorrect": true
+      },
+      {
+          "optionId": 38,
+          "questionId": 2,
+          "content": "B.Tăng tốc độ tính toán",
+          "isCorrect": false
+      },
+      {
+          "optionId": 39,
+          "questionId": 2,
+          "content": "C. Mô-dun hóa",
+          "isCorrect": false
+      },
+      {
+          "optionId": 40,
+          "questionId": 2,
+          "content": "D.Khi tiện lợi, ví dụ người sử dụng có thể làm nhiều thao tác hơn vào-ra hoặc đợi một sự kiện nào đó xuất hiện.",
+          "isCorrect": false
+      }
+  ]
+}
+]
+
+}

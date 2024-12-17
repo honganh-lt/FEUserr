@@ -1,0 +1,90 @@
+/* Container tổng thể cho từng câu hỏi */
+.category-list-chap {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Thêm bóng đổ nhẹ cho câu hỏi */
+  }
+  
+  /* Phần container cho mỗi câu hỏi */
+  .container-list-chap {
+    padding: 10px;
+  }
+  
+  /* Phần course-list-chap, chứa tiêu đề câu hỏi */
+  .course-list-chap {
+    margin-bottom: 15px;
+  }
+  
+  .course-list-chap h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333; /* Màu chữ tiêu đề câu hỏi */
+    margin-bottom: 10px;
+  }
+  
+  /* Danh sách các câu trả lời */
+  ul {
+    list-style-type: none; /* Loại bỏ các dấu chấm đầu dòng */
+    padding: 0;
+  }
+  
+  /* Mỗi câu trả lời */
+  li {
+    padding: 8px 0;
+    font-size: 1em;
+    color: #333; /* Mặc định màu đen */
+  }
+  
+  /* Màu sắc câu trả lời đúng */
+  li[style*="color: red"] {
+    color: red; /* Màu đỏ cho câu trả lời đúng */
+  }
+  
+  /* Các input radio */
+  input[type="radio"] {
+    margin-right: 8px;
+  }
+  
+  /* Hiệu ứng khi hover lên câu trả lời */
+  li:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  /* Định dạng cho label chứa các câu trả lời */
+  label {
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Định dạng cho input radio */
+  input[type="radio"]:disabled {
+    cursor: not-allowed; /* Tắt hiệu ứng hover khi câu trả lời bị khóa */
+  }
+  
+  /* Thêm hiệu ứng cho các câu trả lời khi hover */
+  li:hover {
+    background-color: #f4f4f4;
+    transition: background-color 0.3s;
+  }
+
+  .link-with-icon {
+      text-decoration: none;
+      color: #007bff;
+      font-size: 30px;
+    }
+
+    .link-with-icon:hover {
+      color: #0056b3;
+    }
+
+    .link-with-icon i {
+      margin-left: 2rem;
+      color: #000;
+    }
+  

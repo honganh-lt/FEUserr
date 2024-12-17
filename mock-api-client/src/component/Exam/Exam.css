@@ -1,0 +1,156 @@
+/*Category-center  */
+.category-center {
+    display: flex; /* Sử dụng flexbox để bố trí các phần tử theo chiều ngang */
+    justify-content: space-between; /* Đảm bảo khoảng cách giữa hai bảng con */
+    align-items: flex-start; /* Căn chỉnh các phần tử theo chiều dọc */
+    width: 100%;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #fff;
+}
+.table-left{
+    display: flex;
+    width: 48%; /* Cả hai bảng con sẽ chiếm khoảng 48% chiều rộng của .category-center */
+    padding: 10px;
+    background-color: #fff; /* Thêm màu nền cho các bảng con */
+    border: 1px solid #ddd; /* Thêm viền nhẹ cho các bảng con */
+    border-radius: 8px; /* Làm tròn các góc của bảng */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ cho bảng */
+    height: 220px;
+    /* flex: 1; */
+}
+.timer {
+    position: relative;
+    left: 10rem;
+    text-align: center;
+    margin: 0px 0;
+}
+.timer h2{
+    font-size: 24px;
+    font-weight: 700;
+}
+.timer span{
+    color: red;
+    font-size: 28px;
+}
+.table-right {
+    width: 48%; /* Cả hai bảng con sẽ chiếm khoảng 48% chiều rộng của .category-center */
+    padding: 10px;
+    background-color: #fff; /* Thêm màu nền cho các bảng con */
+    border: 1px solid #ddd; /* Thêm viền nhẹ cho các bảng con */
+    border-radius: 8px; /* Làm tròn các góc của bảng */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ cho bảng */
+    /* flex: 1; */
+}
+
+.info {
+    text-align: left;
+}
+
+.answer-sheet {
+    text-align: left;
+}
+
+.number {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    background-color: #f0f0f0;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+.number.active {
+    /* background-color: #008080; */
+    /* color: #fff; */
+}
+
+.arrow {
+    font-size: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Category-end */
+.category-end {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+.container-end {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: 100%;
+    position: relative;
+    left: 10rem;
+}
+.question {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.options {
+    margin-top: 10px;
+}
+.option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.option input {
+    margin-right: 10px;
+}
+.option label {
+    font-size: 16px;
+}
+.option.correct label {
+    color: #00aaff;
+}
+/* Style cho liên kết */
+.submit-link {
+    text-decoration: none; /* Loại bỏ gạch dưới mặc định của liên kết */
+    display: flex; /* Sử dụng Flexbox để căn giữa */
+    justify-content: center; /* Căn giữa ngang */
+    align-items: center; /* Căn giữa dọc */
+    width: 100%; /* Chiếm hết chiều rộng của container */
+    margin-top: 30px; /* Thêm khoảng cách trên */
+}
+
+/* Style cho nút "Nộp bài" */
+.submit-btn {
+    width: auto; /* Chiều rộng tự động theo nội dung */
+    padding: 10px 20px; /* Khoảng cách trong nút (giảm chiều cao và chiều rộng nút) */
+    background-color: #008080; /* Màu nền xanh biển */
+    color: white; /* Màu chữ trắng */
+    font-size: 16px; /* Kích thước chữ nhỏ lại */
+    border: none; /* Không viền */
+    border-radius: 5px; /* Góc tròn cho nút */
+    cursor: pointer; /* Con trỏ khi di chuột lên nút */
+    text-align: center; /* Căn giữa văn bản trong nút */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */
+}
+
+/* Hiệu ứng hover */
+.submit-btn:hover {
+    background-color: #006666; /* Màu nền thay đổi khi hover */
+}
+
+.number.selected {
+    background-color: lightblue;
+    font-weight: bold;
+  }
+  .arrow {
+    font-size: 24px;
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
