@@ -97,6 +97,11 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
+    transition: background-color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+}
+.card.completed {
+    background-color: #d4edda; /* Màu nền khi đã làm bài (ví dụ màu xanh nhạt) */
+    border-color: #c3e6cb; /* Đổi màu viền */
 }
 .card-content {
     position: absolute;

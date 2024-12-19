@@ -49,6 +49,7 @@ export default function Result() {
             <p>CÂU ĐÚNG: {correctAnswers}/50</p>
             <p>THỜI GIAN: {timeTaken}</p>
             <p>ĐIỂM: {score}</p>
+            <a href='/detail'>Xem chi tiết</a>
             <div className="btn-result">
               <a href="/exams">
                 <button className="submit-btn">THOÁT</button>

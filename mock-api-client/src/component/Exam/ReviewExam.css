@@ -125,7 +125,11 @@
 .incorrect {
     color: red;
 }
-.option-circle {
+.option-circle.selected {
+    background-color: #007bff;
+    color: white;
+}
+/* .option-circle {
     display: inline-block;
     width: 25px;
     height: 25px;
@@ -142,4 +146,4 @@
 .option-circle.incorrect {
     background-color: red;
     color: white;
-}
+} */
