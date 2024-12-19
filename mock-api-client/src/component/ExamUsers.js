@@ -5,7 +5,7 @@ import Headers from '../Header';
 
 export default function ExamUsers() {
     // Lưu trữ danh sách người dùng thi
-    const [examUsers, setExamUsers] = useState([]);
+    const [examDto, setExamUsers] = useState([]);
     
     // Lưu trữ các bài thi đã làm xong
     const [completedExams, setCompletedExams] = useState(new Set());
@@ -19,7 +19,7 @@ export default function ExamUsers() {
 
     // Hàm call API để lấy danh sách bài thi
     const getAllUsers = async () => {
-        const resp = await axiosLocalApi.get('examUsers');
+        const resp = await axiosLocalApi.get('/public/admin/exams');
         setExamUsers(resp.data);
     };
 
@@ -40,19 +40,20 @@ export default function ExamUsers() {
     };
 
     // Render danh sách các bài thi
-    const elementExamUsers = examUsers.map((item, index) => {
-        const isCompleted = completedExams.has(item.id); // Kiểm tra xem bài thi đã làm chưa
+    const elementExamUsers = examDto.map((item, index) => {
+        const isCompleted = completedExams.has(item.subjectId); // Kiểm tra xem bài thi đã làm chưa
         return (
             <div
                 key={index}
                 className={`card ${isCompleted ? 'completed' : ''}`} // Thêm lớp 'completed' nếu bài thi đã làm xong
-                onClick={() => handleExamClick(item.id)} // Bắt sự kiện click
+                onClick={() => handleExamClick(item.subjectId)} // Bắt sự kiện click
             >
                 <div className='card-time'>
                     <p>8/12/2024</p>
                 </div>
                 <div className="card-content">
-                    <h3>{item.exam}</h3>
+                    <h2>{item.title}</h2>
+                    <h3>{item.description}</h3>
                     <div className="details">
                         <span>Lần thi:</span>
                         <a href='/reviewExam'>

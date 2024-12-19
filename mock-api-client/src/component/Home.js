@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axiosLocalApi from '../api/local-api';
 import { useNavigate } from 'react-router-dom';  // Thêm hook useNavigate để chuyển hướng
-import '../style/MockUsers.css';
+import '../style/Home.css';
 // import Login from './RLogin'; 
 // import Register from './Register';
 
-export default function MockUsers() {
-  const [users, setUsers] = useState([]);
+export default function Home() {
+  const [subjects, setSubjects] = useState([]);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -17,12 +17,12 @@ export default function MockUsers() {
     if (user) {
       setIsLoggedIn(true);
     }
-    getAllUsers();
+    getAllSubjects();
   }, []);
 
-  const getAllUsers = async () => {
-    const resp = await axiosLocalApi.get("users");
-    setUsers(resp.data);
+  const getAllSubjects = async () => {
+    const resp = await axiosLocalApi.get("public/subjects");
+    setSubjects(resp.data);
   };
 
   const handleLoginClick = () => {
@@ -39,12 +39,12 @@ export default function MockUsers() {
     navigate('/'); // Chuyển hướng về trang chủ khi đăng xuất
   };
 
-  const elementUsers = users.map((item, index) => {
+  const elementSubjects = subjects.map((item, index) => {
     return (
       <div className='category' key={index}>
         <div className="container">
           <div className="course">
-            <a href="/">{item.subject}</a>
+            <a href="/">{item.name}</a>
           </div>
         </div>
       </div>
@@ -108,7 +108,7 @@ export default function MockUsers() {
 </main>
 
       <div className='category'>
-        {elementUsers}
+        {elementSubjects}
       </div>
     </div>
   );

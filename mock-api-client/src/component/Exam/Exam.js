@@ -5,7 +5,7 @@ import '../Exam/Exam.css';
 import Headers from '../../Header';
 
 export default function Exam() {
-  const [examQuestionAnswers, setexamQuestionAnswers] = useState([]);
+  const [questions, setexamQuestionAnswers] = useState([]);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [timeLeft, setTimeLeft] = useState(40 * 60); // 40 phút = 2400 giây
   const navigate = useNavigate(); // Dùng navigate để điều hướng
@@ -27,7 +27,7 @@ export default function Exam() {
   // Lấy dữ liệu câu hỏi từ API
   const getAllUsers = async () => {
     try {
-      const resp = await axiosLocalApi.get('examQuestionAnswers');
+      const resp = await axiosLocalApi.get('/public/chapter/questions');
       console.log("dữ liệu", resp.data);
       
       setexamQuestionAnswers(resp.data);
@@ -48,7 +48,7 @@ export default function Exam() {
     let correctAnswers = 0;
 
     // Duyệt qua từng câu hỏi và kiểm tra câu trả lời của người dùng
-    examQuestionAnswers.forEach((question, index) => {
+    questions.forEach((question, index) => {
       // Lấy câu trả lời người dùng đã chọn
       const userAnswerIndex = selectedAnswers[index];
 
@@ -76,7 +76,7 @@ export default function Exam() {
   };
 
   // Render các câu hỏi và lựa chọn câu trả lời
-  const elementexamQuestionAnswers = examQuestionAnswers?.map((item, questionIndex) => {
+  const elementexamQuestionAnswers = questions?.map((item, questionIndex) => {
     return (
       <div key={item.questionId} className="container-end">
         <div className="question">{item.content}</div>
@@ -116,7 +116,7 @@ export default function Exam() {
       </div>
     );
   });
-  console.log('Dữ liệu in:', examQuestionAnswers);
+  console.log('Dữ liệu in:', questions);
 
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60
@@ -179,7 +179,7 @@ export default function Exam() {
       </div>
 
       <div className="category-end">
-        {elementexamQuestionAnswers}
+        {elementexamQuestionAnswers }
         <button className="submit-btn" onClick={handleSubmit}>Nộp bài</button>
       </div>
     </>

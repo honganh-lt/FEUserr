@@ -32,7 +32,7 @@ return (
       <img
         alt=""
         // height={60}
-        src='logoschool.png'        // width={60}
+        src='hat.png'        // width={60}
       />
     </div>
     <div className="auth-links">
