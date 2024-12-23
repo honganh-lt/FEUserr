@@ -69,7 +69,7 @@ export default function Home() {
           <div className="nav-links">
             <a href="/">TRANG CHỦ</a>
             <a href="/revision">ÔN TẬP</a>
-            <a href="/exams">BÀI THI</a>
+            <a href="/chooseExams">BÀI THI</a>
           </div>
         </div>
         <div className='header-img'>

@@ -1,3 +1,24 @@
+  /* Icon mũi tên */
+/* Đặt màu sắc cho mũi tên */
+.arrow-exam i {
+    color: red;  /* Màu đỏ cho mũi tên */
+    font-size: 24px;  /* Điều chỉnh kích thước mũi tên (có thể thay đổi tùy theo ý muốn) */
+}
+
+/* Đặt liên kết có vị trí cố định trên màn hình */
+.back-link {
+    position: fixed;  /* Đảm bảo vị trí cố định */
+    top: 20px;        /* Khoảng cách từ trên cùng */
+    left: 20px;       /* Khoảng cách từ bên trái */
+    z-index: 9999;    /* Đảm bảo mũi tên nằm trên các phần tử khác */
+    text-decoration: none;  /* Xóa bỏ gạch chân */
+}
+
+/* Tạo hiệu ứng hover nếu cần */
+.back-link:hover .arrow-exam i {
+    color: darkred;  /* Thay đổi màu khi hover, nếu muốn */
+}
+
 /*Category-center  */
 .category-center {
     display: flex; /* Sử dụng flexbox để bố trí các phần tử theo chiều ngang */
@@ -9,21 +30,26 @@
     top: 0;
     z-index: 10;
     background-color: #fff;
+    border-bottom: 2px solid #999696;   
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);  
 }
 .table-left{
     display: flex;
-    width: 48%; /* Cả hai bảng con sẽ chiếm khoảng 48% chiều rộng của .category-center */
+    width: 25%; /* Cả hai bảng con sẽ chiếm khoảng 48% chiều rộng của .category-center */
     padding: 10px;
-    background-color: #fff; /* Thêm màu nền cho các bảng con */
-    border: 1px solid #ddd; /* Thêm viền nhẹ cho các bảng con */
-    border-radius: 8px; /* Làm tròn các góc của bảng */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ cho bảng */
-    height: 220px;
+    /* background-color: #fff; Thêm màu nền cho các bảng con */
+    /* border: 1px solid #ddd; Thêm viền nhẹ cho các bảng con */
+    /* border-radius: 8px; Làm tròn các góc của bảng */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); Thêm bóng nhẹ cho bảng */
+    height: 10rem;
+    position: relative;
+    left: 5rem;
     /* flex: 1; */
 }
 .timer {
+    width: 20%;
     position: relative;
-    left: 10rem;
+    left: -2rem;
     text-align: center;
     margin: 0px 0;
 }
@@ -36,12 +62,15 @@
     font-size: 28px;
 }
 .table-right {
-    width: 48%; /* Cả hai bảng con sẽ chiếm khoảng 48% chiều rộng của .category-center */
+    width: 30%; /* Cả hai bảng con sẽ chiếm khoảng 48% chiều rộng của .category-center */
+    height: 10rem;
     padding: 10px;
     background-color: #fff; /* Thêm màu nền cho các bảng con */
     border: 1px solid #ddd; /* Thêm viền nhẹ cho các bảng con */
     border-radius: 8px; /* Làm tròn các góc của bảng */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ cho bảng */
+    position: relative;
+    right: 4rem;
     /* flex: 1; */
 }
 
@@ -85,12 +114,13 @@
 }
 .container-end {
     padding: 20px;
+    padding-left: 10rem;
     display: flex;
     flex-direction: column;
     gap: 0px;
     width: 100%;
     position: relative;
-    left: 10rem;
+    /* text-align: left; */
 }
 .question {
     font-size: 18px;
@@ -136,6 +166,10 @@
     cursor: pointer; /* Con trỏ khi di chuột lên nút */
     text-align: center; /* Căn giữa văn bản trong nút */
     transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */
+    position: relative;
+    left: 40rem;
+    top: 5rem;
+    
 }
 
 /* Hiệu ứng hover */
@@ -147,10 +181,13 @@
     background-color: lightblue;
     font-weight: bold;
   }
-  .arrow {
+  /* .arrow {
     font-size: 24px;
     margin-top: 10px;
     text-align: center;
     cursor: pointer;
-  }
+  } */
+  
+
+
   

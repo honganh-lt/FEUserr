@@ -46,13 +46,13 @@ export default function Result() {
           </div>
           <div className="result-text">
             <h1>KẾT QUẢ BÀI THI!</h1>
-            <p>CÂU ĐÚNG: {correctAnswers}/50</p>
+            <p>CÂU ĐÚNG: {correctAnswers}/10</p>
             <p>THỜI GIAN: {timeTaken}</p>
             <p>ĐIỂM: {score}</p>
             <a href='/detail'>Xem chi tiết</a>
             <div className="btn-result">
               <a href="/exams">
-                <button className="submit-btn">THOÁT</button>
+                <button className="submit-btn-result">THOÁT</button>
               </a>
             </div>
           </div>

@@ -1,40 +1,46 @@
 import React, { useEffect, useState } from 'react';
-import axiosLocalApi from '../../api/local-api'; // Đảm bảo axios đã cấu hình đúng
-import { useParams } from 'react-router-dom'; // Để lấy subjectId từ URL
+import axiosLocalApi from '../../api/local-api';
+import { useParams } from 'react-router-dom';
 import Headers from '../../Header';
 import '../Revision/RevisionListChap.css';
 
 export default function RevisionListChap() {
-    const [subject, setSubject] = useState(null); // Lưu trữ môn học và các chương của nó
+    const [subject, setSubject] = useState(null);
     const { subjectId } = useParams(); // Lấy subjectId từ URL
 
-    // Gọi API để lấy thông tin môn học và các chương của môn học
     const getSubjectById = async () => {
         try {
-            const resp = await axiosLocalApi.get(`subjects/${subjectId}`); // Lấy thông tin môn học theo subjectId
+            const resp = await axiosLocalApi.get(`public/subjects/${subjectId}`);
             console.log('Dữ liệu môn học:', resp.data);
-            setSubject(resp.data); // Lưu trữ dữ liệu vào state
+            setSubject(resp.data); // Lưu trữ môn học và các chương
         } catch (error) {
             console.error('Lỗi khi gọi API:', error);
         }
     };
 
-    // Gọi hàm getSubjectById khi component mount hoặc subjectId thay đổi
     useEffect(() => {
         getSubjectById();
     }, [subjectId]);
 
-    // Kiểm tra nếu subject chưa có dữ liệu
     if (!subject) {
         return <div>Đang tải dữ liệu...</div>;
     }
 
-    // Render các chương
+    const handleChapterDetails = (chapterId) => {
+        console.log(`Xem chi tiết chương: ${chapterId}`);
+        // Chuyển đến trang chi tiết chương nếu cần
+    };
+
     const renderChaps = (chaps) => {
         return chaps.map((item) => (
-            <div key={item.chapterId}>
-                <p>{item.name}</p>
-                {/* Có thể thêm các thông tin hoặc link vào đây */}
+            <div key={item.chapterId} className="chapter-card">
+                <p className="chapter-title">{item.name}</p>
+                <button 
+                    className="chapter-details-btn"
+                    onClick={() => handleChapterDetails(item.chapterId)}
+                >
+                    Chi tiết
+                </button>
             </div>
         ));
     };
@@ -42,12 +48,14 @@ export default function RevisionListChap() {
     return (
         <div>
             <Headers />
-            <div className="subject-detail">
+            <section className='category-re-list'>
                 <h2>{subject.name}</h2>
-                <div className="chapters">
-                    {renderChaps(subject.chaps)} {/* Hiển thị các chương */}
+                <div className="container-re-list">
+                    <div className="chapters">
+                        {renderChaps(subject.chapters)}
+                    </div>
                 </div>
-            </div>
+            </section>
         </div>
     );
 }

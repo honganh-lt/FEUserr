@@ -68,3 +68,19 @@
     text-decoration: underline;
     color: #006666;
 }
+.submit-btn-result {
+    width: auto; /* Chiều rộng tự động theo nội dung */
+    padding: 10px 20px; /* Khoảng cách trong nút (giảm chiều cao và chiều rộng nút) */
+    background-color: #008080; /* Màu nền xanh biển */
+    color: white; /* Màu chữ trắng */
+    font-size: 16px; /* Kích thước chữ nhỏ lại */
+    border: none; /* Không viền */
+    border-radius: 5px; /* Góc tròn cho nút */
+    cursor: pointer; /* Con trỏ khi di chuột lên nút */
+    text-align: center; /* Căn giữa văn bản trong nút */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */
+    position: relative;
+    left: 0rem;
+    top: 1rem;
+    
+}

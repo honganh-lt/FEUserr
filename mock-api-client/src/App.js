@@ -26,12 +26,15 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} /> {/* Trang Chủ */}
         <Route exact path="/revision" element={<RevisionUser />} /> {/* Ôn Tập */}
-        <Route path="/listChap/:subjectId" element={<RevisionListChap />} />        <Route exact path="/chap/:id" element={<RevisionChap1 />} />          {/* câu hỏi ôn tập theo chương */}
+        {/* Thêm route mới cho việc hiển thị thông tin chi tiết môn học */}
+        {/* <Route exact path="/subject/:subjectId" element={<RevisionUser />} /> Ôn Tập */}
+
+        <Route exact path="/subject/:subjectId" element={<RevisionListChap />} />        
+        <Route exact path="/chap/:id" element={<RevisionChap1 />} /> {/* câu hỏi ôn tập theo chương */}
+        {/* <Route exact path="/revision/:subjectId" element={<RevisionSubject />} /> Route cho môn học */}
       </Routes>
     </Router>
-
       {/* <AppRevision /> */}
-
       <AppExam />
       </div>
   );

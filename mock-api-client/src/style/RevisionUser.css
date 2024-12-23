@@ -1,73 +1,47 @@
-.header {
-  /* background-color: #e0f7fa; */
-  height: 190px;
-  padding: 10px 20px;
+/* To ensure the entire layout uses flex */
+.revision {
   display: flex;
-  align-items: center;
-  border: 1px solid #178FA5;
-  border-top: 5px solid #00bcd4;
-  justify-content: space-between;
-}
-.text-header h2 {
-  color: #178FA5; /* Màu xanh */
-  font-size: 48px; /* Kích thước chữ lớn */
-  text-transform: uppercase; /* Chữ in hoa */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Hiệu ứng bóng cho chữ */
-  font-weight: 700;
-  position: relative;
-  left: 4rem;
-
-}
-.header .nav-links {
-  display: flex;
-  align-items: center;
-}
-.header .nav-links a {
-  margin: 0 60px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 700;
-  position: relative;
-  top: 2rem;
-  left: 4rem;
-}
-.header .nav-links a:hover {
-  border-bottom: 2px solid #00bcd4;
-  color: #178FA5;
-}
-
-/*Section*/
-.container-section-search {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  /* align-items: center;
-  background-color: #f5f5f5; */
-}
-.search-container {
   margin: 20px;
-  display: flex;
-  align-items: center;
-  border: 1px solid #00bcd4;
-  border-radius: 25px;
-  padding: 5px 10px;
-  width: 90%;
-  max-width: 400px;
-}
-.search-container input {
-  border: none;
-  outline: none;
-  flex-grow: 1;
-  padding: 5px;
-  font-size: 16px;
-}
-.search-container i {
-  color: #00bcd4;
-  font-size: 20px;
+  height: 100vh; /* Tạo chiều cao toàn màn hình cho layout */
 }
 
+/* Sidebar styles */
+.sidebar {
+  width: 300px; /* Chiều rộng cố định cho sidebar */
+  background-color: #f1f1f1;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  height: 100vh; /* Sidebar chiếm hết chiều cao màn hình */
+  z-index: 10;
+}
+
+.sidebar h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.sidebar li:hover {
+  color: #008080;
+}
+
+/* Content styles */
+.content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* Layout for content section */
 .category-re {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -75,18 +49,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f5f5f5;
+  width: 100%;
 }
+
 .container-re {
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
   margin: 20px;
   text-align: center;
 }
+
 .category-header {
   font-size: 24px;
   margin: 20px 0;
 }
+
 .card {
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -98,36 +75,18 @@
   align-items: center;
   position: relative;
 }
+
 .card-content {
   position: absolute;
   top: 2rem;
   text-align: left;
 }
+
 .card-content h3 {
   margin: 0;
   font-size: 18px;
 }
-.card-content .icon {
-  color: #000;
-  margin-left: 5px;
-}
-.card-content .details {
-  margin-top: 10px;
-}
-.card-content .details a{
-  /* margin-top: 10px; */
-  text-decoration: none;
-  color: #000;
-}
-.card-content .details span {
-  display: inline-block;
-  padding: 5px 10px;
-  border: 1px solid #000;
-  margin-right: 10px;
-}
-.card-content .details span:last-child {
-  margin-right: 0;
-}
+
 .card-time {
   border: none;
   border-radius: 20px;
@@ -136,9 +95,8 @@
   font-size: 16px;
   position: relative;
   left: 13rem;
-
-  /* align-items: end; */
 }
+
 .card-button {
   background-color: #008080;
   color: #fff;
@@ -149,9 +107,8 @@
   font-size: 16px;
   position: relative;
   left: 13rem;
-
-  /* align-items: end; */
 }
+
 .card-button:hover {
   background-color: #006666;
 }
