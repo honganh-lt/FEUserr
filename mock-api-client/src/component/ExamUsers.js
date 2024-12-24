@@ -1,23 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import axiosLocalApi from '../api/local-api';
-import { useNavigate } from 'react-router-dom'; // Dùng useNavigate để điều hướng
+import { useParams, useNavigate } from 'react-router-dom'; 
 import '../style/ExamUsers.css';
 import Headers from '../Header';
 
 export default function ExamUsers() {
   const [examUsers, setExamUsers] = useState([]); // Cập nhật biến state đúng
   const [completedExams, setCompletedExams] = useState(new Set());
+  const [examAttempts, setExamAttempts] = useState({}); // Lưu số lần làm bài thi
+  const { subjectId } = useParams(); // Lấy subjectId từ URL
   const navigate = useNavigate(); // Hook điều hướng
 
   useEffect(() => {
-    getAllUsers();
+    if (subjectId) {
+      getExamsBySubject(subjectId);
+    }
     const savedCompletedExams = JSON.parse(localStorage.getItem('completedExams')) || [];
     setCompletedExams(new Set(savedCompletedExams));
-  }, []);
 
-  const getAllUsers = async () => {
-    const resp = await axiosLocalApi.get('/public/admin/exams');
-    setExamUsers(resp.data); // Lưu danh sách bài thi vào state
+    const savedExamAttempts = JSON.parse(localStorage.getItem('examAttempts')) || {};
+    setExamAttempts(savedExamAttempts);
+  }, [subjectId]);
+
+  const getExamsBySubject = async (subjectId) => {
+    try {
+      const resp = await axiosLocalApi.get(`/public/admin/exams?subjectId=${subjectId}`);
+      setExamUsers(resp.data); // Lưu danh sách bài thi vào state
+    } catch (error) {
+      console.error('Lỗi khi lấy bài thi:', error);
+    }
   };
 
   const handleExamClick = (examId) => {
@@ -31,11 +42,24 @@ export default function ExamUsers() {
       localStorage.setItem('completedExams', JSON.stringify([...newCompletedExams]));
       return newCompletedExams;
     });
+
+    // Cập nhật số lần làm bài thi
+    setExamAttempts((prevAttempts) => {
+      const newAttempts = { ...prevAttempts };
+      if (newAttempts[examId]) {
+        newAttempts[examId] += 1;
+      } else {
+        newAttempts[examId] = 1;
+      }
+      localStorage.setItem('examAttempts', JSON.stringify(newAttempts));
+      return newAttempts;
+    });
   };
 
-  // Duyệt qua examUsers để tạo ra các phần tử hiển thị
   const elementExamUsers = examUsers.map((item, index) => {
     const isCompleted = completedExams.has(item.examId); // Kiểm tra nếu bài thi đã hoàn thành
+    const attempts = examAttempts[item.examId] || 0; // Lấy số lần làm bài thi (mặc định là 0)
+
     return (
       <div
         key={index}
@@ -49,13 +73,9 @@ export default function ExamUsers() {
           <h2>{item.title}</h2> {/* Hiển thị title bài thi */}
           <h3>{item.description}</h3> {/* Hiển thị description bài thi */}
           <div className="details">
-            <span>Lần thi:</span>
-            <a href='/reviewExam'>
-              <span>Xem lại</span>
-            </a>
+            <span>Lần thi: {attempts}</span> {/* Hiển thị số lần thi */}
           </div>
         </div>
-        {/* Cập nhật đường dẫn tới trang làm bài */}
         <a onClick={() => navigate(`/taketheexam/${item.examId}`)}>
           <button className="card-button">Làm bài</button>
         </a>
@@ -66,13 +86,6 @@ export default function ExamUsers() {
   return (
     <div>
       <Headers />
-      <section className='container-section'>
-        <div className="search-container">
-          <input type="text" placeholder="Tìm kiếm bài thi..." />
-          <i className="fas fa-search" />
-        </div>
-      </section>
-
       <div className='category-exam'>
         <div className="container-exam">
           <div className="category-header">HÃY CHỌN BÀI THI!</div>

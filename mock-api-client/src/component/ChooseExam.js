@@ -8,7 +8,7 @@ export default function ChooseExam() {
   const [subjects, setSubjects] = useState([]);
   const [selectedSubject, setSelectedSubject] = useState(null); // Môn học đã chọn
   const [exams, setExams] = useState([]); // Đề thi của môn học đã chọn
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Hook điều hướng
 
   useEffect(() => {
     getAllSubjects();
@@ -16,7 +16,7 @@ export default function ChooseExam() {
 
   const getAllSubjects = async () => {
     try {
-      const resp = await axiosLocalApi.get('/public/subjects');
+      const resp = await axiosLocalApi.get('/public/admin/exams');
       console.log('Dữ liệu nhận được:', resp.data);
       setSubjects(resp.data); // Lưu danh sách môn học
     } catch (error) {
@@ -24,24 +24,10 @@ export default function ChooseExam() {
     }
   };
 
-  // Lấy đề thi của môn học đã chọn
-  const getExamsBySubject = async (subjectId) => {
-    try {
-      const resp = await axiosLocalApi.get(`/public/admin/exams`);
-      setExams(resp.data); // Lưu danh sách đề thi của môn học
-    } catch (error) {
-      console.error('Lỗi khi lấy các đề thi:', error);
-    }
-  };
-
-  // Hàm chọn môn học
+  // Hàm chọn môn học và điều hướng đến trang bài thi
   const handleSelectSubject = (subjectId) => {
-    const selected = subjects.find(subject => subject.subjectId === subjectId);
-    setSelectedSubject(selected); // Cập nhật môn học đã chọn
-    getExamsBySubject(subjectId); // Lấy đề thi của môn học đã chọn
-
-    // Điều hướng đến trang ExamUsers và truyền subjectId trong URL
-    navigate(`/exams/${subjectId}`);
+    // Điều hướng đến trang ExamUsers với subjectId
+    navigate(`/exams/${subjectId}`); 
   };
 
   const elementSubjects = subjects.map((item) => (
@@ -50,11 +36,11 @@ export default function ChooseExam() {
         <p>8/12/2024</p>
       </div>
       <div className="card-content">
-        <h3>{item.name}</h3>
+        <h3>{item.description}</h3>
       </div>
       <button
         className="card-button"
-        onClick={() => handleSelectSubject(item.subjectId)} // Chọn môn học
+        onClick={() => handleSelectSubject(item.examId)} // Chọn môn học
       >
         Chọn đề
       </button>
@@ -71,10 +57,10 @@ export default function ChooseExam() {
             {subjects.map(subject => (
               <li key={subject.subjectId}>
                 <button
-                  onClick={() => handleSelectSubject(subject.subjectId)}
+                  onClick={() => handleSelectSubject(subject.subjectId)} // Chọn môn học
                   style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit' }}
                 >
-                  {subject.name}
+                  {subject.description}
                 </button>
               </li>
             ))}
@@ -92,6 +78,16 @@ export default function ChooseExam() {
                   </div>
                   <div className="card-content">
                     <h2>{selectedSubject.name}</h2>
+                    {/* Hiển thị danh sách đề thi */}
+                    <ul>
+                      {exams.length > 0 ? (
+                        exams.map((exam, index) => (
+                          <li key={index}>{exam.name}</li>
+                        ))
+                      ) : (
+                        <p>Chưa có đề thi cho môn học này</p>
+                      )}
+                    </ul>
                   </div>
                 </div>
               ) : (

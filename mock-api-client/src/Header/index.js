@@ -8,7 +8,7 @@ return (
   <div>
     <header className="header">
     <img 
-      alt="FITA logo"
+      alt=""
       // height={90}
       src='logoschool.png'      // width={90}
     />

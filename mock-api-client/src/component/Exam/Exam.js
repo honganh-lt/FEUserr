@@ -51,24 +51,36 @@ export default function Exam() {
 
   const handleSubmit = () => {
     let correctAnswers = 0;
-
+    const answersDetail = [];
+  
     // Duyệt qua từng câu hỏi và kiểm tra câu trả lời của người dùng
     examQuestionAnswers.forEach((question, index) => {
       const userAnswerIndex = selectedAnswers[index];
-      if (userAnswerIndex !== undefined) {
-        const selectedAnswer = question.answers[userAnswerIndex];
-        if (selectedAnswer.isCorrect) {
-          correctAnswers++; // Tăng số câu trả lời đúng nếu câu trả lời đúng
-        }
+      const isCorrect = userAnswerIndex !== undefined && question.answers[userAnswerIndex]?.isCorrect;
+  
+      if (isCorrect) {
+        correctAnswers++;
       }
+  
+      answersDetail.push({
+        questionId: question.questionId,
+        questionText: question.content, // Nội dung câu hỏi
+        selectedAnswer: question.answers[userAnswerIndex]?.content, // Câu trả lời đã chọn
+        selectedAnswerIndex: userAnswerIndex, // Lưu lại index câu trả lời đã chọn
+        isCorrect: isCorrect, // Đúng hay sai
+        correctAnswer: question.answers.find(answer => answer.isCorrect)?.content, // Câu trả lời đúng
+        options: question.answers, // Lưu các phương án trả lời để hiển thị trong DetailExam
+      });
     });
-
-    // Tính thời gian đã làm bài (40 phút - thời gian còn lại)
-    const timeTaken = 40 * 60 - timeLeft; // Thời gian làm bài tính theo 40 phút
+  
+    // Lưu câu trả lời vào localStorage
+    localStorage.setItem('examAnswers', JSON.stringify({ examId, answers: answersDetail }));
+  
+    // Tính thời gian làm bài
+    const timeTaken = 40 * 60 - timeLeft;
     const minutes = Math.floor(timeTaken / 60);
     const seconds = timeTaken % 60;
-
-    // Điều hướng sang trang kết quả và truyền dữ liệu kết quả
+  
     navigate('/result', {
       state: {
         correctAnswers,
@@ -76,6 +88,7 @@ export default function Exam() {
       },
     });
   };
+  
 
   // Render các câu hỏi và lựa chọn câu trả lời
   const elementexamQuestionAnswers = examQuestionAnswers.map((item, questionIndex) => {

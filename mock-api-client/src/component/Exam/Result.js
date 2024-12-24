@@ -51,7 +51,7 @@ export default function Result() {
             <p>ĐIỂM: {score}</p>
             <a href='/detail'>Xem chi tiết</a>
             <div className="btn-result">
-              <a href="/exams">
+              <a href="/chooseExams">
                 <button className="submit-btn-result">THOÁT</button>
               </a>
             </div>
